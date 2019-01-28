@@ -185,8 +185,14 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
 					formOne.classList.add('hidden');	//скрываем первую страницу
 					formThree.classList.remove('hidden'); // выводим третью
 					buttonthree.onclick = function () {
-						extraOne = randomPsy(10, 99); //присвоил значение первому экстрасенсу
-						extratwo = randomPsy(10, 99); //присвоил значение второму экстрасенсу
+						if (inputOne.value >= 10 && inputOne.value <=50 ) {
+							extraOne = randomPsy(10, 50); //присвоил значение первому экстрасенсу
+							extratwo = randomPsy(10, 50); //присвоил значение второму экстрасенсу
+						}
+						else {
+							extraOne = randomPsy(50, 99); //присвоил значение первому экстрасенсу
+							extratwo = randomPsy(50, 90); //присвоил значение второму экстрасенсу
+						}
 						
 						if(inputOne.value <= 9 || inputOne.value >= 100) {
 							// console.log('зашли в условие, если больше 99 или меньше 10');
@@ -217,7 +223,7 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
 						formFour.classList.remove('hidden'); // выводим четвертую
 						buttonFour.onclick = function () { // нажали четвертую кнопку для перехода на новую игру (продолжение)
 							if(inputOne.value != inputTwo.value) { //проверка на совпадения чисел которые ввел пользователь за 1 раунд
-								alert('обманывать не хорошо, нежно вводить тоже самое значение как и в первый раз :)');
+								alert('обманывать не хорошо, нужно вводить тоже самое значение как и в первый раз :)');
 								formFour.classList.add('hidden');	//скрываем четвертую страницу
 								formTwo.classList.remove('hidden'); // выводим первую
 								addWindowTwo();
@@ -272,28 +278,29 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
   										numbExtraTwo.appendChild(numbExtraSaveTwo);
 
   										//подставляем престиж первого экстрасенса
-  										if (prestigeOneArr < 0 ) {
-  											document.getElementById('prestigeExOne').innerHTML = 'Не внушает доверие';
-  										}
-  										if (prestigeTwoArr < 0 ) {
-  											document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
-  										}
-  										if (prestigeOneArr >= 0 && prestigeOneArr <=5 ) {
-  											document.getElementById('prestigeExOne').innerHTML = 'я тебя не обману';
-  										}
-  										if (prestigeTwoArr >= 0 && prestigeTwoArr <=5 ) {
-  											document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
-  										}
-  										if (prestigeOneArr >= 6  ) {
-  											document.getElementById('prestigeExOne').innerHTML = 'просто БОГ фортуны';
-  										}
-  										if (prestigeTwoArr >= 6 ) {
-  											document.getElementById('prestigeExTwo').innerHTML = 'просто БОГ фортуны';
-  										}
-
-  										// document.getElementById('prestigeExOne').innerHTML = prestigeOneArr;
+  										document.getElementById('prestigeExOne').innerHTML = prestigeOneArr;
   										// //подставляем престиж второго экстрасенса
-  										// document.getElementById('prestigeExTwo').innerHTML = prestigeTwoArr;
+  										document.getElementById('prestigeExTwo').innerHTML = prestigeTwoArr;
+  										// if (prestigeOneArr < 0 ) {
+  										// 	document.getElementById('prestigeExOne').innerHTML = 'Не внушает доверие';
+  										// }
+  										// if (prestigeTwoArr < 0 ) {
+  										// 	document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
+  										// }
+  										// if (prestigeOneArr >= 0 && prestigeOneArr <=5 ) {
+  										// 	document.getElementById('prestigeExOne').innerHTML = 'я тебя не обману';
+  										// }
+  										// if (prestigeTwoArr >= 0 && prestigeTwoArr <=5 ) {
+  										// 	document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
+  										// }
+  										// if (prestigeOneArr >= 6  ) {
+  										// 	document.getElementById('prestigeExOne').innerHTML = 'просто БОГ фортуны';
+  										// }
+  										// if (prestigeTwoArr >= 6 ) {
+  										// 	document.getElementById('prestigeExTwo').innerHTML = 'просто БОГ фортуны';
+  										// }
+
+
 								}
 								}
 								}
@@ -321,28 +328,36 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
 							extraOne = randomPsy(10, 50); //присвоил значение первому экстрасенсу
 							extratwo = randomPsy(10, 50); //присвоил значение второму экстрасенсу
 						}
-						else if ( inputOne.value >= 51 && inputOne.value <= 99 ) { //если больше 51 и меньше 99
-							let extraRand = randomPsy(1, 20); //вызов функции рандома для опредления более сильного экстрасэнса
-							// console.log(extraRand)
-							if(extraRand > 10) { // елси ранд болльше 10 , то больше шансов
-								if(inputOne.value > 60 && inputOne.value < 90) { //если введенное больше 60 и меньше 90
-									if(inputOne.value >= 70 && inputOne.value <= 80) { // если больше 70 и меньше 80
-										extraOne = randomPsy(70, 75); //присвоил значение первому экстрасенсу шанс 10%
-										extratwo = randomPsy(75, 80); //присвоил значение второму экстрасенсу шанс 10%
-									} else  { //иначе 
-										extraOne = randomPsy(60, 70); //присвоил значение первому экстрасенсу 3% шанс
-										extratwo = randomPsy(80, 90); //присвоил значение второму экстрасенсу 3% шанс
-									}
-								} else {
-									extraOne = randomPsy(60, 90); //присвоил значение первому экстрасенсу 3% шанс
-									extratwo = randomPsy(60, 90); //присвоил значение второму экстрасенсу 3% шанс
-								}
-							} else if (extraRand < 10) {
-								// console.log('функция рандома определила меньше 10, будем гадать от 51 до 99');
-								extraOne = randomPsy(51, 99); //присвоил значение первому экстрасенсу
-								extratwo = randomPsy(51, 99); //присвоил значение второму экстрасенсу
-							}		
+						else {
+							extraOne = randomPsy(50, 90); //присвоил значение первому экстрасенсу
+							extratwo = randomPsy(50, 90); //присвоил значение второму экстрасенсу
 						}
+						// else if ( inputOne.value >= 51 && inputOne.value <= 99 ) { //если больше 51 и меньше 99
+						// 	// let extraRand = randomPsy(1, 20); //вызов функции рандома для опредления более сильного экстрасэнса
+						// 	// // console.log(extraRand)
+						// 	// console.log('зашли а у словие больше 51 и меньше 99');
+						// 		if(inputOne.value > 60 && inputOne.value < 90) { //если введенное больше 60 и меньше 90
+						// 			if(inputOne.value >= 70 && inputOne.value <= 80) { // если больше 70 и меньше 80
+						// 				console.log('зашли в условие ксли больше 70 и менььше 80');
+						// 				extraOne = randomPsy(70, 75); //присвоил значение первому экстрасенсу шанс 10%
+						// 				extratwo = randomPsy(75, 80); //присвоил значение второму экстрасенсу шанс 10%
+						// 			} else  { //иначе 
+						// 				console.log('зашли в условие иначе');
+						// 				extraOne = randomPsy(60, 70); //присвоил значение первому экстрасенсу 3% шанс
+						// 				extratwo = randomPsy(80, 90); //присвоил значение второму экстрасенсу 3% шанс
+						// 			}
+						// 		} else {
+						// 			console.log('зашли в условие иначе');
+						// 			extraOne = randomPsy(60, 90); //присвоил значение первому экстрасенсу 3% шанс
+						// 			extratwo = randomPsy(60, 90); //присвоил значение второму экстрасенсу 3% шанс
+						// 		}
+						// 		else if (extraRand < 10) {
+						// 		console.log('зашли в условие vtymit 10 random');
+						// 		// console.log('функция рандома определила меньше 10, будем гадать от 51 до 99');
+						// 		extraOne = randomPsy(51, 99); //присвоил значение первому экстрасенсу
+						// 		extratwo = randomPsy(51, 99); //присвоил значение второму экстрасенсу
+						// 	}		
+						// }
 						if(inputOne.value <= 9 || inputOne.value >= 100) {
 						// console.log('зашли в условие, если больше 99 или меньше 10');
 						alert('я думал тебе понятны условия игры');
@@ -423,27 +438,27 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
   									numbExtraTwo.appendChild(numbExtraSaveTwo);
 
   									// 	//подставляем престиж первого экстрасенса
-  									// document.getElementById('prestigeExOne').innerHTML = prestigeOneArr;
+  									document.getElementById('prestigeExOne').innerHTML = prestigeOneArr;
   									// 	//подставляем престиж второго экстрасенса
-  									// document.getElementById('prestigeExTwo').innerHTML = prestigeTwoArr;
-  									if(prestigeOneArr < 0 ) {
-  											document.getElementById('prestigeExOne').innerHTML = 'Не внушает доверие';
-  										}
-  									if(prestigeTwoArr < 0 ) {
-  											document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
-  										}
-  									if(prestigeOneArr >= 0 && prestigeOneArr <=5 ) {
-  											document.getElementById('prestigeExOne').innerHTML = 'я тебя не обману';
-  										}
-  									if(prestigeTwoArr >= 0 && prestigeTwoArr <=5 ) {
-  											document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
-  										}
-  									if(prestigeOneArr >= 6  ) {
-  											document.getElementById('prestigeExOne').innerHTML = 'просто БОГ фортуны';
-  										}
-  									if(prestigeTwoArr >= 6 ) {
-  											document.getElementById('prestigeExTwo').innerHTML = 'просто БОГ фортуны';
-  										}
+  									document.getElementById('prestigeExTwo').innerHTML = prestigeTwoArr;
+  									// if(prestigeOneArr < 0 ) {
+  									// 		document.getElementById('prestigeExOne').innerHTML = 'Не внушает доверие';
+  									// 	}
+  									// if(prestigeTwoArr < 0 ) {
+  									// 		document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
+  									// 	}
+  									// if(prestigeOneArr >= 0 && prestigeOneArr <=5 ) {
+  									// 		document.getElementById('prestigeExOne').innerHTML = 'я тебя не обману';
+  									// 	}
+  									// if(prestigeTwoArr >= 0 && prestigeTwoArr <=5 ) {
+  									// 		document.getElementById('prestigeExTwo').innerHTML = 'Не внушает доверие';
+  									// 	}
+  									// if(prestigeOneArr >= 6  ) {
+  									// 		document.getElementById('prestigeExOne').innerHTML = 'просто БОГ фортуны';
+  									// 	}
+  									// if(prestigeTwoArr >= 6 ) {
+  									// 		document.getElementById('prestigeExTwo').innerHTML = 'просто БОГ фортуны';
+  									// 	}
 								}
 								}
 								xhr.onreadystatechange = function() {
