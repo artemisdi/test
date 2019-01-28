@@ -215,7 +215,7 @@
                         extratwo = randomPsy(50, 90); //присвоил значение второму экстрасенсу
                     }
 
-                    if (inputOne.value <= 9 || inputOne.value >= 100) {
+                    if (inputOne.value <= 9 || isNaN(inputOne.value) || inputOne.value >= 100) {
                         // console.log('зашли в условие, если больше 99 или меньше 10');
                         alert('я думал тебе понятны условия игры');
                         formThree.classList.add('hidden');	//скрываем первую страницу
@@ -379,7 +379,7 @@
                     // 		extratwo = randomPsy(51, 99); //присвоил значение второму экстрасенсу
                     // 	}		
                     // }
-                    if (inputOne.value <= 9 || inputOne.value >= 100) {
+                    if (inputOne.value <= 9 || isNaN(inputOne.value) ||  inputOne.value >= 100) {
                         // console.log('зашли в условие, если больше 99 или меньше 10');
                         alert('я думал тебе понятны условия игры');
                         formThree.classList.add('hidden');	//скрываем первую страницу
