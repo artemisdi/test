@@ -423,11 +423,10 @@
                                 xhr.send(body); //тело передачи
                                 xhr.onload = function () { //какой код запроса приходит
                                     // console.log(this.status);
+                                    if (this.status === 200) {
                                         // console.log('все окей');
                                         x = this.response;
                                         dataServer = JSON.parse(x);
-                                        console.log(dataServer);
-                                        console.log('сейчас получим данные');
                                         userNumberArr = dataServer.userNumberArr; // записали данные которые пользователь ввел
                                         psychicOneArr = dataServer.psychicOneArr; // записали данные которые экстрасенс 1й угадал 
                                         psychicTwoArr = dataServer.psychicTwoArr; // записали данные которые экстрасенс 2й угадал 
@@ -480,6 +479,7 @@
                                         // if(prestigeTwoArr >= 6 ) {
                                         // 		document.getElementById('prestigeExTwo').innerHTML = 'просто БОГ фортуны';
                                         // 	}
+                                    }
                                 };
                                 xhr.onreadystatechange = function () {
                                     // console.log(xhr.responseText);
