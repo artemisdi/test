@@ -276,7 +276,10 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
   										//подставляем данные от экстрасенса второго
   										numbExtraSaveTwo.innerHTML = psychicTwoArr[0];
   										numbExtraTwo.appendChild(numbExtraSaveTwo);
-
+  										console.log(userNumberArr[0]);
+  										console.log(psychicOneArr[0]);
+  										console.log(psychicTwoArr[0]);
+  										
   										//подставляем престиж первого экстрасенса
   										document.getElementById('prestigeExOne').innerHTML = prestigeOneArr;
   										// //подставляем престиж второго экстрасенса
