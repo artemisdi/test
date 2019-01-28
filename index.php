@@ -171,6 +171,7 @@
     }
 </style>
 <script>
+    console.log('проверка связи');
     let xhr = new XMLHttpRequest(); //создал новый экзэмпляр объекта	
     let x;
     let dataServer;     // полученные данные с сервера
