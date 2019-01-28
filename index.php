@@ -244,7 +244,7 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
 									// console.log('все окей');
 									if(this.status === 200) {
 									// console.log('все окей');
-									x = this.responseText;
+									x = this.response;
 									dataServer = JSON.parse(x); // переменная после парсинга числа угаданные первым экстрасенсом
 									// console.log(dataServer);
 									userNumberArr = dataServer.userNumberArr; // записали данные которые пользователь ввел

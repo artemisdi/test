@@ -31,4 +31,5 @@ if($_POST['userNumber'] === $_POST['psychicTwo']) {
 $_SESSION['prestigeOneArr'] = explode(',', $_SESSION['prestigeOne']); // взорвал строку престижа для полученния массива престижа первого экстрасенса
 $_SESSION['prestigeTwoArr'] = explode(',', $_SESSION['prestigeTwo']); // взорвал строку престижа для полученния массива престижа второго экстрасенса 
 echo json_encode(($_SESSION));
+//Перезалил, не залил утром
  ?>
