@@ -237,7 +237,7 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
 									body = "userNumber=" + userNumber + "&psychicOne=" + psychicOne + "&psychicTwo=" + psychicTwo;
 								xhr.open("POST", 'server.php', true); // куда отпраляем и каким методом, запросс асинхронный
 								xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded');
-								xhr.send(body); //аргумент???r
+								xhr.send(body); 
 								xhr.onload = function () { //какой код запроса приходит
 								// console.log(this.status); // отоброжение кода запроса с сервера
 								if(this.status === 200) {
@@ -246,7 +246,8 @@ let xhr = new XMLHttpRequest(); //создал новый экзэмпляр о�
 									// console.log('все окей');
 									x = this.response;
 									dataServer = JSON.parse(x); // переменная после парсинга числа угаданные первым экстрасенсом
-									// console.log(dataServer);
+									console.log(dataServer);
+									console.log(x);
 									userNumberArr = dataServer.userNumberArr; // записали данные которые пользователь ввел
 									psychicOneArr = dataServer.psychicOneArr; // записали данные которые экстрасенс 1й угадал 
 									psychicTwoArr = dataServer.psychicTwoArr; // записали данные которые экстрасенс 2й угадал 
